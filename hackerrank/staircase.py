@@ -7,21 +7,27 @@ import re
 import sys
 
 # Complete the staircase function below.
+
+
 def staircase(n):
-    str= []
+    s = []
     temp = ''
     for i in range(n):
         temp += '#'
-    str.append(temp)
-    for i in range(n):
-        str.append(temp)
-    j = 0    
+    s.append(temp)
     for i in range(n-1):
-        str[i+1][0:j] = ' '
-        j+=1  
-    print(str)       
-        
-        
+        s.append(temp)
+    j = 1
+
+    print(s)
+    for i in range(n-1):
+        k = list(s[i+1])
+        k[0:j] = ' '*(j-0)
+        j += 1
+        s[i+1] = k
+    for string in reversed(s):
+        print(''.join(string), '\n')
+
 
 if __name__ == '__main__':
     n = int(input())
